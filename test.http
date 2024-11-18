@@ -1,0 +1,8 @@
+POST https://learn.codeit.kr/api/link-service/users
+Content-Type: application/json
+
+{
+  "name": "codeit",
+  "email": "codeit@gmail.com",
+  "password" : codeit5
+}
