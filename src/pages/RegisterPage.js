@@ -1,21 +1,21 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from '../lib/axios';
-import Label from '../components/Label';
-import Input from '../components/Input';
-import Button from '../components/Button';
-import HorizontalRule from '../components/HorizontalRule';
-import Link from '../components/Link';
-import GoogleImage from '../assets/google.svg';
-import styles from './RegisterPage.module.css';
-import { useToaster } from '../contexts/ToasterProvider';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "../lib/axios";
+import Label from "../components/Label";
+import Input from "../components/Input";
+import Button from "../components/Button";
+import HorizontalRule from "../components/HorizontalRule";
+import Link from "../components/Link";
+import GoogleImage from "../assets/google.svg";
+import styles from "./RegisterPage.module.css";
+import { useToaster } from "../contexts/ToasterProvider";
 
 function RegisterPage() {
   const [values, setValues] = useState({
-    name: '',
-    email: '',
-    password: '',
-    passwordRepeat: '',
+    name: "",
+    email: "",
+    password: "",
+    passwordRepeat: "",
   });
   const navigate = useNavigate();
   const toast = useToaster();
@@ -33,7 +33,7 @@ function RegisterPage() {
     e.preventDefault();
 
     if (values.password !== values.passwordRepeat) {
-      toast('warn', '비밀번호가 일치하지 않습니다.');
+      toast("warn", "비밀번호가 일치하지 않습니다.");
       return;
     }
     const { name, email, password } = values;
@@ -43,16 +43,17 @@ function RegisterPage() {
      * 회원 생성이 성공하면 로그인을 시도한다
      * 로그인이 성공하면 `/me`로 이동한다
      */
+    await axios.post(`/users`, {
+      name,
+      email,
+      password,
+    });
   }
 
   return (
     <>
       <h1 className={styles.Heading}>회원가입</h1>
-      <Button
-        className={styles.GoogleButton}
-        type="button"
-        appearance="outline"
-      >
+      <Button className={styles.GoogleButton} type="button" appearance="outline">
         <img src={GoogleImage} alt="Google" />
         구글로 시작하기
       </Button>
