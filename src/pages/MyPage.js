@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from '../lib/axios';
-import Avatar from '../components/Avatar';
-import Button from '../components/Button';
-import Card from '../components/Card';
-import Link from '../components/Link';
-import HorizontalRule from '../components/HorizontalRule';
-import styles from './MyPage.module.css';
-import PlusSquareImage from '../assets/plus-square.svg';
-import LinkCard from '../components/LinkCard';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "../lib/axios";
+import Avatar from "../components/Avatar";
+import Button from "../components/Button";
+import Card from "../components/Card";
+import Link from "../components/Link";
+import HorizontalRule from "../components/HorizontalRule";
+import styles from "./MyPage.module.css";
+import PlusSquareImage from "../assets/plus-square.svg";
+import LinkCard from "../components/LinkCard";
 
 function MyPage() {
   const [user, setUser] = useState(null);
@@ -16,13 +16,13 @@ function MyPage() {
   const navigate = useNavigate();
 
   async function getMe() {
-    const res = await axios.get('/users/me');
+    const res = await axios.get("/users/me", { withCredentials: true });
     const nextUser = res.data;
     setUser(nextUser);
   }
 
   async function getMyLinks() {
-    const res = await axios.get('/users/me/links');
+    const res = await axios.get("/users/me/links", { withCredentials: true });
     const nextLinks = res.data;
     setLinks(nextLinks);
   }
@@ -60,7 +60,7 @@ function MyPage() {
         </Card>
         <p className={styles.Bio}>
           {user.bio ??
-            '아래에 등록한 사이트들과 자신에 대해 간단하게 소개하는 설명을 작성해 주세요!'}
+            "아래에 등록한 사이트들과 자신에 대해 간단하게 소개하는 설명을 작성해 주세요!"}
         </p>
       </header>
       <HorizontalRule className={styles.HorizontalRule} />
