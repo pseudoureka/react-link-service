@@ -1,8 +1,22 @@
+
+// 유저생성
 POST https://learn.codeit.kr/api/link-service/users
 Content-Type: application/json
 
 {
-  "name" : "ureka",
-  "email" : "ureka@google.com",
+  "name" : "ureka1",
+  "email" : "ureka1@google.com",
+  "password" : "uerka@"
+}
+
+
+###
+
+// 로그인
+POST https://learn.codeit.kr/api/link-service/auth/login
+Content-Type: application/json
+
+{
+  "email" : "ureka1@google.com",
   "password" : "uerka@"
 }
