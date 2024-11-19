@@ -16,13 +16,13 @@ function MyPage() {
   const navigate = useNavigate();
 
   async function getMe() {
-    const res = await axios.get("/users/me", { withCredentials: true });
+    const res = await axios.get("/users/me");
     const nextUser = res.data;
     setUser(nextUser);
   }
 
   async function getMyLinks() {
-    const res = await axios.get("/users/me/links", { withCredentials: true });
+    const res = await axios.get("/users/me/links");
     const nextLinks = res.data;
     setLinks(nextLinks);
   }
