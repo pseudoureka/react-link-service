@@ -48,6 +48,18 @@ function RegisterPage() {
       email,
       password,
     });
+
+    await axios.post(
+      "/auth/login",
+      {
+        email,
+        password,
+      },
+      {
+        withCredentials: true,
+      }
+    );
+    navigate("/me");
   }
 
   return (
