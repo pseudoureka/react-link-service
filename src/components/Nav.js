@@ -18,7 +18,6 @@ export function PublicNav() {
 }
 
 function Nav() {
-  /** @TODO 서버에서 내 정보를 가져온다 */
   const { user, logout } = useAuth();
 
   return (
