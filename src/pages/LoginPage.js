@@ -8,6 +8,7 @@ import HorizontalRule from "../components/HorizontalRule";
 import Link from "../components/Link";
 import GoogleImage from "../assets/google.svg";
 import styles from "./LoginPage.module.css";
+import { useAuth } from "../contexts/AuthProvider";
 
 function LoginPage() {
   const [values, setValues] = useState({
@@ -15,6 +16,7 @@ function LoginPage() {
     password: "",
   });
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -33,10 +35,7 @@ function LoginPage() {
      * 로그인이 성공하면 `/me`로 이동합니다
      */
     const { email, password } = values;
-    await axios.post("/auth/login", {
-      email,
-      password,
-    });
+    await login({ email, password });
     navigate("/me");
   }
 
