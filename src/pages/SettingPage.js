@@ -43,13 +43,15 @@ function SettingPage() {
   }
 
   useEffect(() => {
-    const { name, email, bio, avatar } = user;
-    setValues({
-      name,
-      email,
-      bio,
-    });
-    setInitialAvatar(avatar);
+    if (user) {
+      const { name, email, bio, avatar } = user;
+      setValues({
+        name,
+        email,
+        bio,
+      });
+      setInitialAvatar(avatar);
+    }
   }, [user]);
 
   return (
