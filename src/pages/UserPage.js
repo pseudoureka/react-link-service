@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from '../lib/axios';
-import Avatar from '../components/Avatar';
-import Card from '../components/Card';
-import HorizontalRule from '../components/HorizontalRule';
-import styles from './UserPage.module.css';
-import LinkCard from '../components/LinkCard';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "../lib/axios";
+import Avatar from "../components/Avatar";
+import Card from "../components/Card";
+import HorizontalRule from "../components/HorizontalRule";
+import styles from "./UserPage.module.css";
+import LinkCard from "../components/LinkCard";
 
 function UserPage() {
   const [user, setUser] = useState(null);
